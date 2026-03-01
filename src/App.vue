@@ -22,9 +22,8 @@
                                 <input 
                                   type="text" 
                                   class="quantity-input" 
-                                  :value="shoppingCartItems[0].quantity" 
+                                  v-model.number="shoppingCartItems[0].quantity"
                                   aria-label="quantity"
-                                  @blur="changeQuantity(shoppingCartItems[0].id, $event)"
                                 />
                                 <button class="quantity-change-button" @click="increaseOne(shoppingCartItems[0].id)">+</button>
                             </div>
@@ -49,9 +48,8 @@
                                 <input 
                                   type="text" 
                                   class="quantity-input" 
-                                  :value="shoppingCartItems[1].quantity" 
+                                  v-model.number="shoppingCartItems[1].quantity"
                                   aria-label="quantity"
-                                  @blur="changeQuantity(shoppingCartItems[1].id, $event)"
                                 />
                                 <button class="quantity-change-button" @click="increaseOne(shoppingCartItems[1].id)">+</button>
                             </div>
@@ -77,9 +75,8 @@
                                 <input 
                                   type="text" 
                                   class="quantity-input" 
-                                  :value="shoppingCartItems[2].quantity" 
+                                  v-model.number="shoppingCartItems[2].quantity"
                                   aria-label="quantity"
-                                  @blur="changeQuantity(shoppingCartItems[2].id, $event)"
                                 />
                                 <button class="quantity-change-button" @click="increaseOne(shoppingCartItems[2].id)">+</button>
                             </div>
@@ -104,9 +101,8 @@
                                 <input 
                                   type="text" 
                                   class="quantity-input" 
-                                  :value="shoppingCartItems[3].quantity" 
+                                  v-model.number="shoppingCartItems[3].quantity"
                                   aria-label="quantity"
-                                  @blur="changeQuantity(shoppingCartItems[3].id, $event)"
                                 />
                                 <button class="quantity-change-button" @click="increaseOne(shoppingCartItems[3].id)">+</button>
                             </div>
@@ -131,9 +127,8 @@
                                 <input 
                                   type="text" 
                                   class="quantity-input" 
-                                  :value="shoppingCartItems[4].quantity" 
+                                  v-model.number="shoppingCartItems[4].quantity"
                                   aria-label="quantity"
-                                  @blur="changeQuantity(shoppingCartItems[4].id, $event)"
                                 />
                                 <button class="quantity-change-button" @click="increaseOne(shoppingCartItems[4].id)">+</button>
                             </div>
@@ -226,7 +221,7 @@
 
   function decreaseOne(id) {
     shoppingCartItems.value.some(item => {
-      if (item.id == id && item.quality != 0) {
+      if (item.id == id && item.quantity != 0) {
         item.quantity = item.quantity - 1
       }
     })
@@ -236,14 +231,6 @@
     shoppingCartItems.value.some(item => {
       if (item.id == id) {
         item.quantity = item.quantity + 1
-      }
-    })
-  }
-
-  function changeQuantity(id, event) {
-    shoppingCartItems.value.some(item => {
-      if (item.id == id) {
-        item.quantity = parseInt(event.target.value)
       }
     })
   }
