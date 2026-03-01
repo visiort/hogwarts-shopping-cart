@@ -13,19 +13,37 @@
                     <div class="item-details">
                         <h2>{{ shoppingCartItems[0].productName }}</h2>
                         <p class="price">${{ shoppingCartItems[0].price }}</p>
-                        <p class="in-stock-status"> <i class="fa-solid fa-check"></i> In stock</p>
+                        <p 
+                              class="in-stock-status" 
+                              v-if="shoppingCartItems[0].isInStock"> 
+                              <i class="fa-solid fa-check"></i> 
+                              In stock
+                            </p>
+                          <p 
+                              class="on-backorder-status" 
+                              v-else> 
+                              <i class="fa-solid fa-hourglass-half"></i> 
+                              On backorder
+                            </p>
                     </div>
                     <div class="item-actions">
                         <div class="quantity-selector">
-                                <button class="quantity-change-button" @click="decreaseOne(shoppingCartItems[0].id)"
-                                >−</button>
+                                <button 
+                                  class="quantity-change-button" 
+                                  @click="decreaseOne(shoppingCartItems[0].id)"
+                                  >−
+                                </button>
                                 <input 
                                   type="text" 
                                   class="quantity-input" 
                                   v-model.number="shoppingCartItems[0].quantity"
                                   aria-label="quantity"
                                 />
-                                <button class="quantity-change-button" @click="increaseOne(shoppingCartItems[0].id)">+</button>
+                                <button 
+                                  class="quantity-change-button" 
+                                  @click="increaseOne(shoppingCartItems[0].id)"
+                                  >+
+                                </button>
                             </div>
                             <button class="remove-item">✕</button>
                         </div>
@@ -40,7 +58,18 @@
                         <div class="item-details">
                             <h2>{{ shoppingCartItems[1].productName }}</h2>
                             <p class="price">${{ shoppingCartItems[1].price }}</p>
-                            <p class="in-stock-status"> <i class="fa-solid fa-check"></i> In stock</p>
+                            <p 
+                              class="in-stock-status" 
+                              v-if="shoppingCartItems[1].isInStock"> 
+                              <i class="fa-solid fa-check"></i> 
+                              On backorder
+                            </p>
+                            <p 
+                              class="on-backorder-status" 
+                              v-else> 
+                              <i class="fa-solid fa-hourglass-half"></i> 
+                              In stock
+                            </p>
                         </div>
                         <div class="item-actions">
                             <div class="quantity-selector">
@@ -66,7 +95,18 @@
                         <div class="item-details">
                             <h2>Unicorn Tail Hair</h2>
                             <p class="price">$1200</p>
-                            <p class="on-backorder-status"> <i class="fa-solid fa-hourglass-half"></i> On backorder</p>
+                            <p 
+                              class="in-stock-status" 
+                              v-if="shoppingCartItems[2].isInStock"> 
+                              <i class="fa-solid fa-check"></i> 
+                              On backorder
+                            </p>
+                            <p 
+                              class="on-backorder-status" 
+                              v-else> 
+                              <i class="fa-solid fa-hourglass-half"></i> 
+                              In stock
+                            </p>
                         </div>
                         <div class="item-actions">
                             <div class="quantity-selector">
@@ -93,7 +133,18 @@
                         <div class="item-details">
                             <h2>Wand</h2>
                             <p class="price">$2000</p>
-                            <p class="in-stock-status"> <i class="fa-solid fa-check"></i> In stock</p>
+                            <p 
+                              class="in-stock-status" 
+                              v-if="shoppingCartItems[3].isInStock"> 
+                              <i class="fa-solid fa-check"></i> 
+                              On backorder
+                            </p>
+                            <p 
+                              class="on-backorder-status" 
+                              v-else> 
+                              <i class="fa-solid fa-hourglass-half"></i> 
+                              In stock
+                            </p>
                         </div>
                         <div class="item-actions">
                             <div class="quantity-selector">
@@ -119,7 +170,18 @@
                         <div class="item-details">
                             <h2>Nimbus 2000</h2>
                             <p class="price">$5000</p>
-                            <p class="in-stock-status"> <i class="fa-solid fa-check"></i> In stock</p>
+                            <p 
+                              class="in-stock-status" 
+                              v-if="shoppingCartItems[4].isInStock"> 
+                              <i class="fa-solid fa-check"></i> 
+                              On backorder
+                            </p>
+                            <p 
+                              class="on-backorder-status" 
+                              v-else> 
+                              <i class="fa-solid fa-hourglass-half"></i> 
+                              In stock
+                            </p>
                         </div>
                         <div class="item-actions">
                             <div class="quantity-selector">
