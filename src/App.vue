@@ -163,7 +163,7 @@
   let subtotal = computed(() =>shoppingCartItems.value.reduce(
     (acc, item)=>acc + item.price*item.quantity, 
      0)
-    )
+  )
 
   let shippingEstimate = computed(()=>subtotal.value>1000 ? 100 : 50)
 
@@ -171,6 +171,11 @@
 
   let total = computed(
     () => subtotal.value + shippingEstimate.value + taxEstimate.value)
+
+  watch(shoppingCartItems, ()=>{
+    localStorage.setItem('hogwardsShoppingCart', JSON.stringify(shoppingCartItems.value))
+  },
+  {deep: true})
 </script>
 
 <style scoped> /* Styles for the shopping cart */
@@ -199,7 +204,7 @@
   .cart-list {
     flex-grow: 2;
     margin-right: 20px;
-}
+  }
 
   .order-summary {
     flex-basis: 300px;
